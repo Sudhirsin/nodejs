@@ -75,6 +75,51 @@ npm i loadash -save  (-save means its intalling the package to dependencies) -->
 
 npm i uuid --save-dev  (--save-dev means its installing the package the devDependencies) --> this project depend only during the development.
 
+## NPM Script and Type of Packages
+In package.json we have script section where we can decide which command should in terminal.
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "execute": "node index.js",
+    "watch": "node npm_script.js"
+  },
+
+### Type of Packages:
+Local and Global
+npm i lodash  -> default local
+
+npm i lodash -g  -> global
+
+to get the exact node root:
+npm root -g
+
+uninstall the package
+npm uninstall lodash
+
+## NPX
+to used to install package
+
+### Package.json
+is kind of minifest.It is central repository for configuration of tool.
+
+property:
+name:-> it should be lowercase
+version: "1.0.0",
+description:
+main: it enttry point
+script:
+keywords: 
+author:
+linces: 
+dependecies: 
+devDependencies:
+engines:
+browserslist: support
+contributors:
+bugs: 
+homepage:
+repository:
+private: true by default
+
 
 
 

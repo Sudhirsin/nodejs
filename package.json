@@ -4,7 +4,10 @@
   "description": "node course package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "execute": "node index.js",
+    "watch": "node npm_script.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,8 @@
   },
   "homepage": "https://github.com/Sudhirsin/nodejs#readme",
   "dependencies": {
-    "loadash": "^1.0.0"
+    "cowsay": "^1.4.0",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "uuid": "^8.3.2"
