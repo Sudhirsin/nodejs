@@ -93,7 +93,15 @@ to get the exact node root:
 npm root -g
 
 uninstall the package
-npm uninstall lodash
+npm uninstall lodash or
+npm uninstall -S lodash
+
+
+To uninstall the devDependencies packages
+npm uninstall -D uuid or npm uninstall --save-dev uuid
+
+unistall from global
+npm uninstall -g lodash
 
 ## NPX
 to used to install package
@@ -119,6 +127,8 @@ bugs:
 homepage:
 repository:
 private: true by default
+
+
 
 
 
