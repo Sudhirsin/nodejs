@@ -64,6 +64,19 @@ To use in another file like
 const car = require("./car")
 console.log(car);
 
+## NPM (Node Package Manager) for Nodejs
+npm init --> initial the packagejson file.
+npm init -y -> to yes to default values (package)
+
+intalling the new package.
+npm install or i
+
+npm i loadash -save  (-save means its intalling the package to dependencies) --> this project is depend on this package.
+
+npm i uuid --save-dev  (--save-dev means its installing the package the devDependencies) --> this project depend only during the development.
+
+
+
 
 
 
