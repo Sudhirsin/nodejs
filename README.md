@@ -30,3 +30,42 @@ Rayn Dahl take the V8 engine and emebbedd in c++ called the program as node.
 ### Single-Threded WebServer
 ### Non-Blocking Asynchronous I/O (Node follow the event Queue)
 
+
+## What is REPL(Read Evalute Print Loop) 
+os
+path
+numbers
+
+## Node Script:
+create js file and run in terminal with node.
+
+## Module.
+Node has built in module system.
+we can create our own module also.
+import module  use require.
+
+const os = require("os");
+console.log(os.type())
+
+create the own module.
+
+car.js
+
+const car = {
+    brand: "BMW",
+    model: "Z4"
+}
+
+module.exports = car;  -> expose the object its point to
+or 
+exports.car = car;---> will get results like { car: {brand: "BMW", model: "Z4" }} will have car as key.
+
+To use in another file like
+const car = require("./car")
+console.log(car);
+
+
+
+
+
+
