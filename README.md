@@ -182,6 +182,85 @@ async function msg() {
 msg()
 
 ## Create HTTP Server in node
+const http = require('http')
+
+const hostname = '127.0.0.1'
+const port = 3001;
+
+// 1st method
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end("Welcome to Http server")
+})
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`)
+})
+
+// 2st method
+http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/plain'})
+
+    // same as above
+    // res.statusCode = 200;
+    // res.setHeader('Content-Type', 'text/plain');
+    res.write("Welcome to Http server");
+
+    res.end()
+}).listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`)
+})
 
 
+## Http Request
 
+### Http get Request
+const http = require('http');
+
+// Takes two parameter url and callback with getting res from url
+http.get('http://api.open-notify.org/astros.json', (res) => {
+    let data = ''
+    res.on('data', chunk => {
+        data += chunk
+    })
+
+    res.on('end', () => {
+        console.log('Mydata: ', JSON.parse(data))
+    })
+})
+
+### Http POST Request
+const http = require('https');
+
+const data = JSON.stringify({
+    name: 'Sidhir Singh',
+    job: 'Software Engineer'
+})
+
+
+const options = {
+    hostname: 'reqres.in',
+    path: '/api/users',
+    method: 'POST',
+    header: {
+        'Content-Type': 'application/json'
+    }
+}
+
+// request
+const req = http.request(options, (res) => {
+    let body ='';
+    console.log('status code', res.statusCode)
+
+    res.on('data', (chunk) => {
+        body += chunk;
+    })
+
+    res.on('end', () => {
+        console.log('body:', JSON.parse(body))
+    })
+})
+
+req.write(data);
+req.end();
