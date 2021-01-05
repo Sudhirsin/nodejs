@@ -129,11 +129,59 @@ repository:
 private: true by default
 
 
+## Event Loop
 
 
+## Callback Functions
+callback allows us to do the asynchronous job.
+
+function getMsg(msg, callback) {
+    // console.log('Get message')
+    setTimeout(() => {
+        console.log(msg)
+        callback()
+    }, 1000)
+}
+
+function displayMsg() {
+    console.log('Display message')
+}
+
+getMsg("Get Message", displayMsg)
+getMsg("Get Message", () => console.log("Display Message"))
+
+## Promises
+Promises is way to deal with asynchronous code. It's introduce in ECMAScirpt 2015. and async await in 2017.
+
+let promise = new Promise(function(resolve, reject) {
+    setTimeout(() =>  resolve("Run Before"), 1000)
+})
 
 
+promise.then(
+    result => {
+        console.log(result)
+    },
+    error => console.log(error)
+)
 
+## Async Await
+Its a combination of promises and generators.Asyn await build on promises.
+
+function clone() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Hellllll"), 2000)
+    })
+}
+
+async function msg() {
+    const msg = await clone()
+    console.log('Message: ', msg)
+}
+
+msg()
+
+## Create HTTP Server in node
 
 
 
