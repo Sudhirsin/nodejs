@@ -383,3 +383,118 @@ http.createServer((req, res) => {
         return routes[req.url](req, res);
     }
 }).listen(4000)
+
+## Path Module
+const path = require('path');
+
+
+// will return the last portion of the path
+// file = path.basename("test.json")
+// file = path.basename("tutorial/test.json")
+
+// will return the direction
+// file = path.dirname('tutorials/test.json')
+// file = path.isAbsolute('tutorials/test.json') // false
+
+// joining the path
+// let dir =  "tutorials"
+// file = path.join("C:Users/Sudhir/Desktop", dir, "test.json")
+
+// parse -> return object with all the 
+// {
+//   root: '',
+//   dir: 'Sudhir/Desktop',
+//   base: 'test.json',
+//   ext: '.json',
+//   name: 'test'
+// }
+file = path.parse("Sudhir/Desktop/test.json")
+
+console.log(file)
+
+
+## Event Module
+// allow us to create different event in node
+// event are basically used to perform statement on certain action
+
+const events = require('events')
+
+let ev = new events.EventEmitter();
+
+ev.on('my_event', function(data) {
+    console.log("Event: ", data)
+})
+
+
+// it will fired once
+ev.once('event_once', () => {
+    console.log("Event once fired")
+})
+
+// off will used to unregister the event
+ev.off
+
+ev.emit("my_event", "Call Emit")
+ev.emit("event_once")
+ev.emit("event_once")
+ev.emit("event_once")
+
+## Stream
+// they are the way to handle reading writing file network comunication
+// or any kind of information exchange 
+// Advantages
+// 1. Memory Efficiency
+// 2. Time Efficiency
+
+const http = require('http')
+const fs = require('fs')
+
+// const sever = http.createServer((req, res) => {
+//     fs.readFile('test.json', (err, data) => {
+//         res.end(data);
+//     })
+// })
+
+
+// if file the big so we can use stream method
+const sever = http.createServer((req, res) => {
+    const stream = fs.createReadStream("test.json")
+    stream.pipe(res)
+})
+
+sever.listen(3000, () => console.log("App is running on PORT 3000"))
+
+// insted of sending the whole data once stream will send the data piece by piece
+
+## Buffer
+// if helps devloper to deal with binary data
+// will return the array
+// const buf = Buffer.from("hey")
+
+const buf = Buffer.alloc(4)
+
+console.log(buf.toString())
+console.log(buf)
+console.log(buf[0])
+console.log(buf[1])
+console.log(buf[2])
+
+## Exception Handling
+// every application must have handle error
+// handle in error in node through exception
+// its created with thow keyword
+
+// 1.
+// throw new Error("error messaege")
+
+// 2.
+// try {
+//     lalalla;
+//     console.log('start try bloack')
+// } catch (error) {
+//     console.log("error message")   
+// }
+
+// handle with promises1
+// doSometing.then()
+// .cath()
