@@ -6,6 +6,11 @@
         <div class="title">
             <h2 class="font-weight-bold">Login System</h2>
             <span>Log in for the existing user</span>
+            <% if(locals.logout) {%>
+                <div class="alert alert-success text-center">
+                    <%=logout %>
+                </div>
+            <%}%>
         </div>
         <form action="/route/login" method="POST" pt-3>
             <div class="form-group">
